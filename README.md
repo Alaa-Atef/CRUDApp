@@ -39,13 +39,15 @@ A secure, well-structured .NET 8 Web API implementing CRUD operations for `Produ
 - ✅ Structured logging via Serilog
 - ✅ Swagger for API testing
 
-📋 Sample Endpoints
-Method	       Endpoint	                    Description	                Auth Required
-GET          	/api/products	                Get all products	            ✅ Yes
-GET	          /api/products/{id}	          Get product by ID	            ✅ Yes
-POST	        /api/products	                Create new product	          ✅ Yes
-PUT          	/api/products/{id}	          Update product	              ✅ Yes
-DELETE	      /api/products/{id}	          Delete product	              ✅ Yes
+### 📋 Sample Endpoints
+
+| Method | Endpoint              | Description         | Auth Required |
+|--------|-----------------------|---------------------|---------------|
+| GET    | `/api/products`       | Get all products    | ✅ Yes        |
+| GET    | `/api/products/{id}`  | Get product by ID   | ✅ Yes        |
+| POST   | `/api/products`       | Create new product  | ✅ Yes        |
+| PUT    | `/api/products/{id}`  | Update product      | ✅ Yes        |
+| DELETE | `/api/products/{id}`  | Delete product      | ✅ Yes        |
 
 Similar endpoints exist for /api/students.
 
