@@ -1,0 +1,45 @@
+2025-07-09 16:12:23.062 +03:00 [INF] User profile is available. Using 'C:\Users\Alaa_Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-07-09 16:12:23.872 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44390/swagger/index.html - null null
+2025-07-09 16:12:24.030 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-09 16:12:24.034 +03:00 [INF] Hosting environment: Development
+2025-07-09 16:12:24.037 +03:00 [INF] Content root path: C:\Work\LuftbornTask\APIs
+2025-07-09 16:12:24.376 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44390/swagger/index.html - 200 null text/html;charset=utf-8 503.7036ms
+2025-07-09 16:12:24.479 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44390/_vs/browserLink - null null
+2025-07-09 16:12:24.479 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44390/_framework/aspnetcore-browser-refresh.js - null null
+2025-07-09 16:12:24.493 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44390/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 13.012ms
+2025-07-09 16:12:24.605 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44390/_vs/browserLink - 200 null text/javascript; charset=UTF-8 127.4025ms
+2025-07-09 16:12:24.942 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44390/swagger/v1/swagger.json - null null
+2025-07-09 16:12:24.965 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44390/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.3254ms
+2025-07-09 16:14:03.701 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44390/api/Auth/login - application/json 51
+2025-07-09 16:14:03.835 +03:00 [INF] Executing endpoint 'APIs.Controllers.AuthController.Login (APIs)'
+2025-07-09 16:14:03.856 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(APIs.Controllers.LoginModel) on controller APIs.Controllers.AuthController (APIs).
+2025-07-09 16:14:03.922 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-09 16:14:03.932 +03:00 [INF] Executed action APIs.Controllers.AuthController.Login (APIs) in 70.0408ms
+2025-07-09 16:14:03.936 +03:00 [INF] Executed endpoint 'APIs.Controllers.AuthController.Login (APIs)'
+2025-07-09 16:14:03.937 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44390/api/Auth/login - 200 null application/json; charset=utf-8 236.4366ms
+2025-07-09 16:14:27.031 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44390/api/Products/test-exception - null null
+2025-07-09 16:14:27.137 +03:00 [INF] Executing endpoint 'APIs.Controllers.ProductsController.ThrowException (APIs)'
+2025-07-09 16:14:27.143 +03:00 [INF] Route matched with {action = "ThrowException", controller = "Products"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ThrowException() on controller APIs.Controllers.ProductsController (APIs).
+2025-07-09 16:14:32.154 +03:00 [INF] Executed action APIs.Controllers.ProductsController.ThrowException (APIs) in 5007.4215ms
+2025-07-09 16:14:32.158 +03:00 [INF] Executed endpoint 'APIs.Controllers.ProductsController.ThrowException (APIs)'
+2025-07-09 16:14:32.178 +03:00 [ERR] Unhandled exception occurred
+System.Exception: This is a test exception
+   at APIs.Controllers.ProductsController.ThrowException() in C:\Work\LuftbornTask\APIs\Controllers\ProductsController.cs:line 61
+   at lambda_method4(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at APIs.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Work\LuftbornTask\APIs\ExceptionMiddleware.cs:line 22
+2025-07-09 16:14:32.230 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44390/api/Products/test-exception - 500 null application/json; charset=utf-8 5198.4817ms

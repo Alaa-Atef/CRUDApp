@@ -7,8 +7,22 @@ using Services.ProductServices;
 using Services.StudentServices;
 using System;
 using System.Text;
+using Serilog;
+
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.Debug()
+    .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
+    .Enrich.FromLogContext()
+    .MinimumLevel.Information()
+    .CreateLogger();
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog(); // Use Serilog instead of the default logger
+
 
 // Add services to the container.
 
