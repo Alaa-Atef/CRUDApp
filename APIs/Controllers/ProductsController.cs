@@ -1,7 +1,6 @@
-﻿using DataAccessLayer.DBAccess;
-using Domain;
+﻿using Domain;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Services.ProductServices;
 
 namespace APIs.Controllers
 {
@@ -9,52 +8,48 @@ namespace APIs.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IProductService _productService;
 
-        public ProductsController(AppDbContext context)
+        public ProductsController(IProductService productService)
         {
-            _context = context;
+            _productService = productService;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetAll()
         {
-            return await _context.Products.ToListAsync();
+            var products = await _productService.GetAllAsync();
+            return Ok(products);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetById(int id)
         {
-            var product = await _context.Products.FindAsync(id);
-            if (product == null)
-                return NotFound();
-            return product;
+            var product = await _productService.GetByIdAsync(id);
+            if (product == null) return NotFound();
+            return Ok(product);
         }
 
         [HttpPost]
         public async Task<ActionResult<Product>> Create(Product product)
         {
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
+            var created = await _productService.CreateAsync(product);
+            return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, Product product)
         {
-            if (id != product.Id) return BadRequest();
-            _context.Entry(product).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            var updated = await _productService.UpdateAsync(id, product);
+            if (!updated) return BadRequest();
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var product = await _context.Products.FindAsync(id);
-            if (product == null) return NotFound();
-            _context.Products.Remove(product);
-            await _context.SaveChangesAsync();
+            var deleted = await _productService.DeleteAsync(id);
+            if (!deleted) return NotFound();
             return NoContent();
         }
     }

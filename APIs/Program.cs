@@ -1,5 +1,7 @@
 using DataAccessLayer.DBAccess;
 using Microsoft.EntityFrameworkCore;
+using Services.ProductServices;
+using Services.StudentServices;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
