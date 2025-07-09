@@ -1,3 +1,4 @@
+using APIs;
 using DataAccessLayer.DBAccess;
 using Microsoft.EntityFrameworkCore;
 using Services.ProductServices;
@@ -27,6 +28,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseAuthorization();
 
